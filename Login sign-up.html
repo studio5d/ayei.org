@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afritech | Sign Up / Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#1a884a,#1a884a);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:1000px;
+    background:#ffffff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,0.25);
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* LEFT PANEL */
+.left-panel{
+    flex:1;
+    min-width:300px;
+    background:linear-gradient(160deg,#0A1F44,#122e5c);
+    color:#fff;
+    padding:60px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.left-panel h1{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.left-panel p{
+    opacity:0.9;
+    line-height:1.7;
+}
+
+/* RIGHT PANEL */
+.right-panel{
+    flex:1;
+    min-width:300px;
+    padding:60px 50px;
+    position:relative;
+}
+
+.form-container{
+    width:100%;
+    animation:fade 0.4s ease;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+h2{
+    margin-bottom:25px;
+    color:#0A1F44;
+    font-weight:600;
+}
+
+/* INPUTS */
+.input-group{
+    margin-bottom:18px;
+}
+
+input, select{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    font-size:14px;
+    transition:0.3s ease;
+}
+
+input:focus, select:focus{
+    border-color:#0A1F44;
+    box-shadow:0 0 0 3px rgba(10,31,68,0.1);
+    outline:none;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#013d79;
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+button:hover{
+    background:#1a884a;
+    transform:translateY(-2px);
+}
+
+/* TOGGLE */
+.toggle-link{
+    margin-top:18px;
+    text-align:center;
+    cursor:pointer;
+    color:#163E72;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.toggle-link:hover{
+    text-decoration:underline;
+}
+
+.hidden{
+    display:none;
+}
+
+.footer-note{
+    margin-top:15px;
+    font-size:12px;
+    color:#666;
+    text-align:center;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .container{
+        flex-direction:column;
+    }
+
+    .left-panel{
+        padding:40px 25px;
+        text-align:center;
+    }
+
+    .right-panel{
+        padding:40px 25px;
+    }
+
+    .left-panel h1{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left-panel">
+        <h1>Welcome to Afritech</h1>
+        <p>
+            Join Africa’s leading digital empowerment movement.
+            Access training, leadership opportunities, innovation programs,
+            and connect with technology professionals shaping the future.
+        </p>
+    </div>
+
+    <div class="right-panel">
+
+        <!-- LOGIN FORM -->
+        <div id="loginForm" class="form-container">
+            <h2>Login</h2>
+            <form action="authenticate.php" method="POST">
+
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <div class="toggle-link" onclick="toggleForms()">
+                Don’t have an account? Sign Up
+            </div>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="signupForm" class="form-container hidden">
+            <h2>Create Account</h2>
+            <form action="register.php" method="POST">
+
+                <div class="input-group">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Create Password" required>
+                </div>
+
+                <div class="input-group">
+                    <select name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="volunteer">Volunteer</option>
+                        <option value="mentor">Mentor</option>
+                        <option value="trainer">Trainer</option>
+                        <option value="trainer">Participant</option>
+                    </select>
+                </div>
+
+                <button type="submit">Create Account</button>
+
+            </form>
+
+            <div class="toggle-link" onclick="toggleForms()">
+                Already have an account? Login
+            </div>
+
+            <div class="footer-note">
+                By signing up, you agree to Afritech’s Terms & Data Policy (NDPR compliant).
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function toggleForms(){
+    document.getElementById('loginForm').classList.toggle('hidden');
+    document.getElementById('signupForm').classList.toggle('hidden');
+}
+</script>
+
+</body>
+</html>

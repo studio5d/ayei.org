@@ -1,32 +1,133 @@
-/* Normal desktop :1200px. */
-@media (min-width: 1200px) and (max-width: 1500px) {
+/* responsive.css */
 
+/* ===============================
+   GLOBAL MOBILE FIXES
+=================================*/
 
+/* Make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-
-/* Normal desktop :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {
-
-
+/* Padding fixes for small screens */
+section, .section-padding, .section-padding2 {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
- 
-/* Tablet desktop :768px. */
-@media (min-width: 768px) and (max-width: 991px) {
-
-
+/* Hero captions and buttons */
+.hero__caption h1 {
+    font-size: 28px;
+}
+.hero__caption p {
+    font-size: 14px;
+}
+.hero__btn a {
+    width: 100%;
+    margin-bottom: 10px;
 }
 
- 
-/* small mobile :320px. */
-@media (max-width: 767px) {
-
- 
+/* Team section responsiveness */
+.team-area .single-team {
+    margin-bottom: 30px;
 }
- 
-/* Large Mobile :480px. */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-.container {width:450px}
- 
+
+/* Blog section responsive */
+.home-blog-single {
+    margin-bottom: 30px;
+}
+
+/* Footer responsiveness */
+.footer-wrapper ul li, .footer-wrapper p {
+    font-size: 14px;
+}
+.footer-wrapper input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Counters & single-counter adjustments */
+.single-counter {
+    margin-bottom: 20px;
+}
+
+/* Navigation menu for mobile */
+#navigation {
+    flex-direction: column;
+}
+#navigation li {
+    width: 100%;
+}
+
+/* ===============================
+   MOBILE VIEW
+=================================*/
+
+@media (max-width: 992px) {
+    .hero__caption h1 {
+        font-size: 24px;
+    }
+    .hero__caption p {
+        font-size: 13px;
+    }
+    .header-info-left ul li, .header-info-right ul li {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__caption h1 {
+        font-size: 20px;
+    }
+    .hero__caption p {
+        font-size: 12px;
+    }
+    .hero__btn {
+        flex-direction: column;
+    }
+    .hero__btn a {
+        margin-bottom: 10px;
+    }
+    .about-caption, .section-tittle {
+        text-align: center;
+    }
+    .about-img {
+        text-align: center;
+    }
+    .about-img img {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .single-cases .prices p {
+        font-size: 14px;
+    }
+    .single-job-items .job-items ul {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__caption h1 {
+        font-size: 18px;
+    }
+    .hero__caption p {
+        font-size: 11px;
+    }
+    .section-tittle h2 {
+        font-size: 20px;
+    }
+    .single-team h3 {
+        font-size: 14px;
+    }
+    .single-team p {
+        font-size: 12px;
+    }
+    .footer-wrapper {
+        padding: 20px 10px;
+    }
+    .footer-wrapper .footer-logo img {
+        max-width: 120px;
+    }
 }

@@ -1,0 +1,130 @@
+<section class="donation-section">
+    <div class="donation-wrapper">
+
+        <div class="donation-header">
+            <h2>Support Afritech Youth Empowerment Initiative</h2>
+            <p>Empowering Africa’s Next Generation of Digital Innovators</p>
+        </div>
+
+        <form action="process-international-donation.php" method="POST">
+
+            <!-- Donation Frequency -->
+            <div class="form-section">
+                <label class="section-title">Donation Frequency</label>
+                <div class="radio-grid">
+                    <label><input type="radio" name="frequency" value="one-time" required> One-Time</label>
+                    <label><input type="radio" name="frequency" value="monthly"> Monthly</label>
+                    <label><input type="radio" name="frequency" value="annual"> Annual</label>
+                </div>
+            </div>
+
+            <!-- Currency & Amount -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Currency</label>
+                    <select name="currency" required>
+                        <option value="">Select Currency</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="NGN">NGN (₦)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Donation Amount</label>
+                    <input type="number" name="amount" placeholder="Enter amount" required>
+                </div>
+            </div>
+
+            <!-- Donor Type -->
+            <div class="form-group">
+                <label>Donor Type</label>
+                <select name="donor_type" required>
+                    <option value="">Select Type</option>
+                    <option value="individual">Individual</option>
+                    <option value="corporate">Corporate Organization</option>
+                    <option value="foundation">Foundation</option>
+                    <option value="philanthropist">Philanthropist</option>
+                    <option value="diaspora">Diaspora Supporter</option>
+                </select>
+            </div>
+
+            <!-- Personal Info -->
+            <div class="form-group">
+                <label>Full Name / Organization Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="+1 000 000 0000" required>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label>Address</label>
+                <textarea name="address" rows="3" required></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label>State / Province</label>
+                    <input type="text" name="state" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Postal Code</label>
+                    <input type="text" name="postal_code" required>
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" name="country" required>
+                </div>
+            </div>
+
+            <!-- Tax Receipt -->
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="tax_receipt">
+                    I require an official donation receipt for tax purposes.
+                </label>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+                <label>Message (Optional)</label>
+                <textarea name="message" rows="3"></textarea>
+            </div>
+
+            <!-- Consent -->
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="consent" required>
+                    I consent to Afritech processing my data in compliance with NDPR & GDPR.
+                </label>
+                <p class="small-text">
+                    Your data will be securely stored and used only for donation processing and impact reporting.
+                </p>
+            </div>
+
+            <button type="submit" class="donate-btn">
+                Proceed to Secure Payment
+            </button>
+
+        </form>
+
+    </div>
+</section>

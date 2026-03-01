@@ -24,6 +24,401 @@
 	<link rel="stylesheet" href="assets/css/slick.css">
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+    <style>
+/* ===== 2026 FUTURE CTA BUTTONS ===== */
+
+.future-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 18px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+    background: linear-gradient(135deg, #0a1f44, #00ff88);
+    box-shadow: 0 0 15px rgba(0,255,136,0.5);
+}
+
+/* Animated border sweep */
+.future-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-btn:hover::before {
+    left: 100%;
+}
+
+/* Hover lift + glow expansion */
+.future-btn:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 0 30px rgba(0,255,136,0.8);
+}
+
+/* Click pulse */
+.future-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 40px rgba(0,255,136,1);
+}
+
+/* Color Variations */
+.future-register {
+    background: linear-gradient(135deg, #004aad, #00c6ff);
+}
+
+.future-volunteer {
+    background: linear-gradient(135deg, #006d3c, #00ff88);
+}
+
+.future-pioneer {
+    background: linear-gradient(135deg, #1a884a, #052900);
+}
+</style>
+    <style>
+/* ===== 2026 FUTURE READ MORE BUTTON ===== */
+
+.future-read-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Neon animated border glow */
+.future-read-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00ff88, #00c6ff, #210057, #00ff88);
+    background-size: 300% 300%;
+    animation: borderMove 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes borderMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* Light sweep */
+.future-read-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-read-btn:hover::after {
+    left: 100%;
+}
+
+/* Hover lift */
+.future-read-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(0,255,136,0.6);
+}
+
+/* Click pulse */
+.future-read-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 40px rgba(0,255,136,1);
+}
+
+/* Arrow animation */
+.future-read-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.future-read-btn:hover .arrow {
+    transform: translateX(6px);
+}
+</style>
+<style>
+/* ===== 2026 FUTURE VOLUNTEER BUTTON ===== */
+
+.future-volunteer-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 38px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 60px;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+}
+
+/* Animated Neon Border */
+.future-volunteer-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 60px;
+    background: linear-gradient(
+        90deg,
+        #130051,
+        #014214,
+        #0c004f
+    );
+    background-size: 200% 200%;
+    animation: neonFlow 5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes neonFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Subtle Glow Pulse */
+.future-volunteer-btn {
+    box-shadow: 0 0 15px rgba(0,255,136,0.4);
+    animation: pulseGlow 3s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(15, 0, 100, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(0,255,136,0.8); }
+    100% { box-shadow: 0 0 10px rgba(19, 2, 98, 0.4); }
+}
+
+/* Light Sweep Animation */
+.future-volunteer-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-volunteer-btn:hover::after {
+    left: 100%;
+}
+
+/* Hover Lift */
+.future-volunteer-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 35px rgb(12, 0, 86);
+}
+
+/* Click Compression */
+.future-volunteer-btn:active {
+    transform: scale(0.95);
+}
+
+/* Arrow Motion */
+.future-volunteer-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.future-volunteer-btn:hover .arrow {
+    transform: translateX(8px);
+}
+</style>
+<style>
+/* ===== 2026 FUTURE DONATE BUTTON ===== */
+
+.future-donate-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 34px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 60px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #00ff88, #00c6ff);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0,255,136,0.6);
+}
+
+/* Animated Moving Glow Border */
+.future-donate-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 60px;
+    background: linear-gradient(
+        90deg,
+        #1a884a,
+        #3c1ffb,
+        #200296,
+        #1a884a
+    );
+    background-size: 300% 300%;
+    animation: borderFlow 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes borderFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* Subtle Pulse Dot Indicator */
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    animation: dotPulse 2s infinite;
+}
+
+@keyframes dotPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.8); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Light Sweep */
+.future-donate-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-donate-btn:hover::after {
+    left: 100%;
+}
+
+/* Hover Lift + Glow */
+.future-donate-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 40px rgba(0,255,136,1);
+}
+
+/* Click Compression */
+.future-donate-btn:active {
+    transform: scale(0.95);
+}
+</style>
+<style>
+/* ===== 2026 FUTURE READ MORE TEXT ===== */
+
+.future-read-text {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #040056;
+    transition: all 0.3s ease;
+}
+
+/* Animated Energy Underline */
+.future-read-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #004f30, #00c6ff);
+    transition: width 0.4s ease;
+}
+
+.future-read-text:hover::after {
+    width: 100%;
+}
+
+/* Hover Glow */
+.future-read-text:hover {
+    color: #003f0a;
+    text-shadow: 0 0 10px rgba(6, 70, 1, 0.8);
+}
+
+/* Arrow Motion */
+.future-read-text .arrow {
+    transition: transform 0.3s ease;
+}
+
+.future-read-text:hover .arrow {
+    transform: translateX(6px);
+}
+
+/* Click Compression */
+.future-read-text:active {
+    transform: scale(0.95);
+}
+</style>
 </head>
 <body>
     <!-- ? Preloader Start -->
@@ -54,10 +449,10 @@
                                     <div class="header-social">    
                                         <ul>
                                              <li><a href="#"><i class="fab fa-Instagram"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a  href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                            <li><a href="https://x.com/AfritechYo78402"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a  href="https://www.facebook.com/share/1DUTCF3ouV/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="https://www.linkedin.com/company/afritech-youth-empowerment-initiative-ayei/"><i class="fab fa-linkedin-in"></i></a></li>
+                                            <li> <a href="https://www.instagram.com/afritechyouth/"><i class="fab fa-instagram"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -109,7 +504,7 @@
                                             <ul id="navigation">                                                                                          
                                                 <li><a href="index.html">Home</a></li>
                                                 <li><a href="#About">About</a></li>
-                                                <li><a href="Recent Project.html">Recent Projects</a></li>
+                                                <li><a href="Loading Page.html">Recent Projects</a></li>
                                                 <li><a href="https://www.instagram.com/afritechyouth/">social events </a></li>
                                                 <li><a href="#blog">Blog</a></li>
                                                 <li><a href="#footer">Contact</a></li>
@@ -119,7 +514,11 @@
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="contact.html" class="btn header-btn">Donate</a>
+    <a href="International Donation.html" class="future-donate-btn">
+        Donate
+        <span class="pulse-dot"></span>
+    </a>
+</div>
                                     </div>
                                 </div>
                             </div> 
@@ -169,7 +568,7 @@
 </p>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
-                                    <a href="" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
+                                    <a href="International Donation.html" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
                                     <a href="https://wa.me/message/PF6XXZQ5UXSOA1" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
                                         <i class="flaticon-null"></i>
                                         <p>+2347066069899</p>
@@ -208,7 +607,7 @@
                                 <P class="stroke-text" data-animation="fadeInUp" data-delay=".8s" > Pan-African • Tech-driven • Youth-focused • Modern and scalable.</P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
-                                    <a href="" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
+                                    <a href="International Donation.html" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
                                     <a href="https://wa.me/message/PF6XXZQ5UXSOA1" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
                                         <i class="flaticon-null"></i>
                                         <p>+2347066069899</p>
@@ -222,6 +621,37 @@
         </div>
     </div>
     <!-- slider Area End-->
+    <!-- Call To Action Section Start -->
+<section class="cta-area section-padding text-center" style="background:#0f172a;">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <!-- Register -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="Login sign-up.html" class="future-btn future-register">
+                    Register
+                </a>
+            </div>
+
+            <!-- Volunteer -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="Volunteer Form.html" class="future-btn future-volunteer">
+                    Volunteer
+                </a>
+            </div>
+
+            <!-- Become a Pioneer -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="Loading Page.html" class="future-btn future-pioneer">
+                    Become a Pioneer
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Call To Action Section End -->
+     
     <section id="About">
     <!--? About Law Start-->
     <section class="about-low-area section-padding2">
@@ -243,8 +673,15 @@
                             development across the continent.</p>
                             <p>Through a combination of skills training, mentorship, incubation, and advocacy, AYEI fosters an ecosystem where young
                                  people can become leaders, innovators, and changemakers in the technology and digital sectors.</p>
+                                <p>
+    <a href="Loading Page.html" class="future-read-btn mt-3">
+        Read More
+        
+    </a>
+</p>
+</p>
                     </div>
-                    <a href="about.html" class="#About">About US</a>
+                    
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <!-- about-img -->
@@ -448,13 +885,13 @@
                             <img src="assets/img/gallery/team1.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fas fa-globe"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-caption">
-                            <h3><a href="instructor.html">Loading</a></h3>
+                            <h3><a href="Loading Page.html">Loading</a></h3>
                             <p>Volunteer Now</p>
                         </div>
                     </div>
@@ -465,13 +902,13 @@
                             <img src="assets/img/gallery/team2.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fas fa-globe"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-caption">
-                            <h3><a href="instructor.html">Loading...</a></h3>
+                            <h3><a href="Loading Page.html">Loading...</a></h3>
                             <p>Volunteer Now</p>
                         </div>
                     </div>
@@ -482,13 +919,13 @@
                             <img src="assets/img/gallery/team3.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fas fa-globe"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-caption">
-                            <h3><a href="instructor.html">Loading...</a></h3>
+                            <h3><a href="Loading Page.html">Loading...</a></h3>
                             <p>Volunteer Now</p>
                         </div>
                     </div>
@@ -499,13 +936,13 @@
                             <img src="assets/img/gallery/team4.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="Loading Page.html"><i class="fas fa-globe"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-caption">
-                            <h3><a href="instructor.html">Loading...</a></h3>
+                            <h3><a href="Loading Page.html">Loading...</a></h3>
                             <p>Volunteer Now</p>
                         </div>
                     </div>
@@ -525,7 +962,10 @@
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
-                        <a href="Volunteer Form.html" class="btn white-btn f-right sm-left">Become A Volunteer</a>
+                  <a href="Volunteer Form.html" class="future-volunteer-btn">
+    Become A Volunteer
+    
+</a>
                     </div>
                 </div>
             </div>
@@ -533,12 +973,14 @@
     </section>
     <!-- Want To work End -->
     <!--? Testimonial Start -->
+    <section id="Testimonial">
     <div class="testimonial-area testimonial-padding">
         <div class="container">
             <!-- Testimonial contents -->
             <div class="row d-flex justify-content-center">
                 <div class="col-xl-8 col-lg-8 col-md-10">
                     <div class="h1-testimonial-active dot-style">
+                        <section id="testimonial">
                         <!-- Single Testimonial -->
                         <div class="single-testimonial text-center">
                             <div class="testimonial-caption ">
@@ -597,6 +1039,7 @@ and inspiring. Afritech didn’t just teach us coding they taught us confidence.
             </div>
         </div>
     </div>
+    </section>
     <!-- Testimonial End -->
      <section id="blog">
     <!--? Blog Area Start -->
@@ -607,9 +1050,9 @@ and inspiring. Afritech didn’t just teach us coding they taught us confidence.
                 <div class="col-xl-5 col-lg-6 col-md-9 col-sm-10">
                     <div class="section-tittle text-center mb-90">
                         <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="blog_details.html" class="btn header-btn">Blog Details</a>
+                                        <a href="Loading Page.html" class="btn header-btn">Blog Details</a>
                                     </div>
-                        <a href="blog_details.html"> <h2>Latest News from our recent blog</h2>
+                        <a href="Loading Page.html"> <h2>Latest News from our recent blog</h2>
                     </div>
                 </div>
             </div>
@@ -626,8 +1069,10 @@ and inspiring. Afritech didn’t just teach us coding they taught us confidence.
                                 </div>
                             </div>
                             <div class="blog-cap">
-                                <p>Read More...</p>
-                                <h3><a href="blog_details.html">Building Africa’s Digital Future: How Afritech Is Empowering the Next Generation of Innovators</a></h3>
+                                <p><a href="about.html" class="future-read-text">
+        Read More
+        <span class="arrow">→</span></p>
+                                
                             </div>
                         </div>
                     </div>
@@ -644,8 +1089,13 @@ and inspiring. Afritech didn’t just teach us coding they taught us confidence.
                                 </div>
                             </div>
                             <div class="blog-cap">
-                                <p>Read More...</p>
-                                <h3><a href="blog_details.html">Why Digital Skills Matter in 2026: Preparing Africa’s Youth for a Technology-Driven World</a></h3>
+                                <p>
+    <a href="about.html" class="future-read-text">
+        Read More
+        <span class="arrow">→</span>
+    </a>
+</p>
+                               
                             </div>
                         </div>
                     </div>
@@ -664,7 +1114,7 @@ and inspiring. Afritech didn’t just teach us coding they taught us confidence.
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <!-- Counter Up -->
                                 <div class="single-counter text-center">
-                                    <span class="counter color-green">Loading...</span>
+                                    <span class="counter color-green">6</span>
                                     <span class="plus">+</span>
                                     <p class="color-green">Donation</p>
                                 </div>
@@ -739,11 +1189,11 @@ and inspiring. Afritech didn’t just teach us coding they taught us confidence.
                                 <div class="footer-tittle">
                                     <h4>Important Link</h4>
                                     <ul>
-                                        <li><a href="#"> View Project</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Proparties</a></li>
-                                        <li><a href="#">Support</a></li>
+                                        <li><a href="Loading Page.html"> View Recent Project</a></li>
+                                        <li><a href="mailto:afritechyouth@gmail.com">Contact Us</a></li>
+                                        <li><a href="#Testimonial">Testimonial</a></li>
+                                        <li><a href="Loading Page.html">Blog</a></li>
+                                        <li><a href="mailto:afritechyouth@gmail.com">Support</a></li>
                                     </ul>
                                 </div>
                             </div>

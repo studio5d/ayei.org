@@ -1,0 +1,655 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> AYEI</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/AfriTech Youth Empowerment logo.png">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/css/slicknav.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/progressbar_barfiller.css">
+    <link rel="stylesheet" href="assets/css/gijgo.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/animated-headline.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/nice-select.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+    <style>
+/* ===== 2026 FUTURE CTA BUTTONS ===== */
+
+.future-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 18px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+    background: linear-gradient(135deg, #0a1f44, #00ff88);
+    box-shadow: 0 0 15px rgba(0,255,136,0.5);
+}
+
+/* Animated border sweep */
+.future-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-btn:hover::before {
+    left: 100%;
+}
+
+/* Hover lift + glow expansion */
+.future-btn:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 0 30px rgba(0,255,136,0.8);
+}
+
+/* Click pulse */
+.future-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 40px rgba(0,255,136,1);
+}
+
+/* Color Variations */
+.future-register {
+    background: linear-gradient(135deg, #004aad, #00c6ff);
+}
+
+.future-volunteer {
+    background: linear-gradient(135deg, #006d3c, #00ff88);
+}
+
+.future-pioneer {
+    background: linear-gradient(135deg, #1a884a, #052900);
+}
+</style>
+    <style>
+/* ===== 2026 FUTURE READ MORE BUTTON ===== */
+
+.future-read-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Neon animated border glow */
+.future-read-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00ff88, #00c6ff, #210057, #00ff88);
+    background-size: 300% 300%;
+    animation: borderMove 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes borderMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* Light sweep */
+.future-read-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-read-btn:hover::after {
+    left: 100%;
+}
+
+/* Hover lift */
+.future-read-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(0,255,136,0.6);
+}
+
+/* Click pulse */
+.future-read-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 40px rgba(0,255,136,1);
+}
+
+/* Arrow animation */
+.future-read-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.future-read-btn:hover .arrow {
+    transform: translateX(6px);
+}
+</style>
+<style>
+/* ===== 2026 FUTURE VOLUNTEER BUTTON ===== */
+
+.future-volunteer-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 38px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 60px;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+}
+
+/* Animated Neon Border */
+.future-volunteer-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 60px;
+    background: linear-gradient(
+        90deg,
+        #130051,
+        #014214,
+        #0c004f
+    );
+    background-size: 200% 200%;
+    animation: neonFlow 5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes neonFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Subtle Glow Pulse */
+.future-volunteer-btn {
+    box-shadow: 0 0 15px rgba(0,255,136,0.4);
+    animation: pulseGlow 3s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(15, 0, 100, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(0,255,136,0.8); }
+    100% { box-shadow: 0 0 10px rgba(19, 2, 98, 0.4); }
+}
+
+/* Light Sweep Animation */
+.future-volunteer-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-volunteer-btn:hover::after {
+    left: 100%;
+}
+
+/* Hover Lift */
+.future-volunteer-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 35px rgb(12, 0, 86);
+}
+
+/* Click Compression */
+.future-volunteer-btn:active {
+    transform: scale(0.95);
+}
+
+/* Arrow Motion */
+.future-volunteer-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.future-volunteer-btn:hover .arrow {
+    transform: translateX(8px);
+}
+</style>
+<style>
+/* ===== 2026 FUTURE DONATE BUTTON ===== */
+
+.future-donate-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 34px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 60px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #00ff88, #00c6ff);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0,255,136,0.6);
+}
+
+/* Animated Moving Glow Border */
+.future-donate-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 60px;
+    background: linear-gradient(
+        90deg,
+        #1a884a,
+        #3c1ffb,
+        #200296,
+        #1a884a
+    );
+    background-size: 300% 300%;
+    animation: borderFlow 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes borderFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* Subtle Pulse Dot Indicator */
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    animation: dotPulse 2s infinite;
+}
+
+@keyframes dotPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.8); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Light Sweep */
+.future-donate-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.future-donate-btn:hover::after {
+    left: 100%;
+}
+
+/* Hover Lift + Glow */
+.future-donate-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 40px rgba(0,255,136,1);
+}
+
+/* Click Compression */
+.future-donate-btn:active {
+    transform: scale(0.95);
+}
+</style>
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-top d-none d-lg-block">
+                    <div class="container-fluid">
+                        <div class="col-xl-12">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="header-info-left d-flex">
+                                    <ul>     
+                                        <li>Phone: +2347066069899</li>
+                                        <li>Email: afritechyouth@gmail.com</li>
+                                    </ul>
+                                    <div class="header-social">    
+                                        <ul>
+                                             <li><a href="#"><i class="fab fa-Instagram"></i></a></li>
+                                            <li><a href="https://x.com/AfritechYo78402"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a  href="https://www.facebook.com/share/1DUTCF3ouV/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="https://www.linkedin.com/company/afritech-youth-empowerment-initiative-ayei/"><i class="fab fa-linkedin-in"></i></a></li>
+                                            <li> <a href="https://www.instagram.com/afritechyouth/"><i class="fab fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="header-info-right d-flex align-items-center">
+                                    <div class="select-this">
+                                        <form action="#">
+                                            <div class="select-itms">
+                                                <select name="select" id="select1">
+                                                    <option value="">English</option>
+                                                    <option value="">Swahili</option>
+                                                    <option value="">Arabic</option>
+                                                    <option value="">French</option>
+                                                    <option value="">China</option>
+                                                    <option value="">Japan</option>
+                                                    <option value="">Portuguese</option>
+                                                    <option value="">Hausa</option>
+                                                    <option value="">Yoruba</option>
+                                                    <option value="">Igbo</option>
+                                                    <option value="">Amharic</option>
+                                                    <option value="">IsiZulu</option>
+                                                    <option value="">Fulani</option>
+                                                    <option value="">Berber</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <ul class="contact-now">     
+                                        <li><a href="#footer">Subscribe Now</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10">
+                                <div class="menu-wrapper  d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">                                                                                          
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="#About">About</a></li>
+                                                <li><a href="Recent Project.html">Recent Projects</a></li>
+                                                <li><a href="https://www.instagram.com/afritechyouth/">social events </a></li>
+                                                <li><a href="#blog">Blog</a></li>
+                                                <li><a href="#footer">Contact</a></li>
+                                                <li><a href="Login sign-up.html">Register</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <!-- Header-btn -->
+                                    <div class="header-right-btn d-none d-lg-block ml-20">
+    <a href="International Donation.html" class="future-donate-btn">
+        Donate
+        <span class="pulse-dot"></span>
+    </a>
+</div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <!-- header end -->
+     <main>
+        <!--? Hero Start -->
+        <div class="slider-area2">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-20 text-center">
+                                <h2>This Page is Under Construction</h2>
+                                <p>We’re currently refining this page to provide you with the best experience. Please check back soon for updates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+<section id="footer"> 
+    </main>
+    <footer>
+        <div class="footer-wrapper section-bg2" data-background="assets/img/gallery/footer_bg.png">
+            <!-- Footer Top-->
+            <div class="footer-area footer-padding">
+                <div class="container">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-footer-caption mb-50">
+                            <div class="single-footer-caption mb-30">
+                                <div class="footer-tittle">
+                                    <div class="footer-logo mb-20">
+                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Contact Info</h4>
+                                    <ul>
+                                        <li>
+                                            <p> Block 215, Zitel Plaza, 20 P.O.W. Mafemi Cres, Utako, Abuja 900108, Federal Capital Territory.</p>
+                                        </li>
+                                        <li><a href="#">Phone : +2347066069899</a></li>
+                                        <li><a href="#">Email : afritechyouth@gmail.com</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Important Link</h4>
+                                    <ul>
+                                        <li><a href="#"> View Project</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Testimonial</a></li>
+                                        <li><a href="#">Proparties</a></li>
+                                        <li><a href="#">Support</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Newsletter</h4>
+                                    <div class="footer-pera footer-pera2">
+                                    <p>Subscribe</p>
+                                </div>
+                                <!-- Form -->
+                                <div class="footer-form" >
+                                    <div id="mc_embed_signup">
+                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                        method="get" class="subscribe_form relative mail_part">
+                                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                            class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = ' Email Address '">
+                                            <div class="form-icon">
+                                                <button type="submit" name="submit" id="newsletter-submit"
+                                                class="email_icon newsletter-submit button-contactForm"><img src="assets/img/gallery/form.png" alt=""></button>
+                                            </div>
+                                            <div class="mt-10 info"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer-bottom -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-xl-10 col-lg-9 ">
+                                <div class="footer-copy-right">
+                                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |  <i class="fa fa-heart" aria-hidden="true"></i>  <a href="https://colorlib.com" target="_blank">AYEI</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3">
+                                <div class="footer-social f-right">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a  href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    <!-- JS here -->
+
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./assets/js/wow.min.js"></script>
+    <script src="./assets/js/animated.headline.js"></script>
+    <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Date Picker -->
+    <script src="./assets/js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/js/jquery.sticky.js"></script>
+    <!-- Progress -->
+    <script src="./assets/js/jquery.barfiller.js"></script>
+    
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="./assets/js/jquery.counterup.min.js"></script>
+    <script src="./assets/js/waypoints.min.js"></script>
+    <script src="./assets/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/hover-direction-snake.min.js"></script>
+
+    <!-- contact js -->
+    <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>
+    <script src="./assets/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/mail-script.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    </body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AYEI Membership Portal 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.app{width:100%;max-width:420px;background:#111827;border-radius:30px;box-shadow:0 20px 60px rgba(0,0,0,.6);overflow:hidden}
+.header{padding:20px;text-align:center;background:#0f172a}
+.header h2{font-size:18px}
+.screen{padding:25px;display:none;animation:fade .4s ease}
+.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+input,select{width:100%;padding:14px;margin:8px 0;border-radius:14px;border:none;background:#1f2937;color:#fff}
+button{width:48%;padding:14px;margin-top:15px;border:none;border-radius:18px;background:#38bdf8;font-weight:600;cursor:pointer}
+button:hover{background:#0ea5e9}
+.progress{display:flex;height:6px;background:#1f2937}
+.progress-bar{height:6px;background:#38bdf8;width:0%;transition:.4s}
+.card{background:#1f2937;padding:15px;border-radius:16px;margin:8px 0;cursor:pointer}
+.card.active{border:2px solid #38bdf8}
+.small{text-align:center;margin-top:10px;font-size:12px;opacity:.7}
+.dashboard-box{background:#1f2937;padding:15px;border-radius:16px;margin:10px 0}
+.logout{background:#ef4444}
+.button-group{display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="app">
+<div class="header"><h2>AYEI Membership Portal</h2></div>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<!-- LOGIN SCREEN -->
+<div class="screen active" id="loginScreen">
+<h3>Login</h3>
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPassword" placeholder="Password">
+<button onclick="login()">Login</button>
+<p class="small">No account? Register below</p>
+<button onclick="showScreen('step1')">Create Account</button>
+</div>
+
+<!-- STEP 1: Membership -->
+<div class="screen" id="step1">
+<h3>Select Membership</h3>
+<div id="membershipOptions"></div>
+<div class="button-group">
+<button onclick="prevStep(0)">Previous</button>
+<button onclick="nextStep(2)">Next</button>
+</div>
+</div>
+
+<!-- STEP 2: Personal Info -->
+<div class="screen" id="step2">
+<h3>Personal Details</h3>
+<input type="text" id="fullName" placeholder="Full Name">
+<input type="email" id="email" placeholder="Email Address">
+<input type="password" id="newPassword" placeholder="Create Password">
+<input type="password" id="confirmPassword" placeholder="Confirm Password">
+<label for="photoUpload">Upload Passport Photo:</label>
+<input type="file" id="photoUpload" accept="image/*">
+<select id="state">
+<option value="">Select State</option>
+<option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option>
+<option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option>
+<option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option>
+<option>Ekiti</option><option>Enugu</option><option>FCT - Abuja</option><option>Gombe</option>
+<option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option>
+<option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option>
+<option>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option>
+<option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option>
+<option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option>
+<option>Zamfara</option>
+</select>
+<div class="button-group">
+<button onclick="prevStep(1)">Previous</button>
+<button onclick="nextStep(3)">Next</button>
+</div>
+</div>
+
+<!-- STEP 3: Email Verification -->
+<div class="screen" id="step3">
+<h3>Email Verification</h3>
+<p>A verification code has been sent to your email.</p>
+<input type="text" id="emailOTP" placeholder="Enter Email OTP">
+<div id="emailTimer" style="font-size:12px;opacity:0.7;margin-top:5px;"></div>
+<div class="button-group">
+<button onclick="prevStep(2)">Previous</button>
+<button onclick="verifyEmailOTP()">Verify</button>
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="screen" id="dashboard">
+<h3>Member Dashboard</h3>
+<div class="dashboard-box"><strong>Membership ID:</strong> <span id="memberID"></span></div>
+<div class="dashboard-box"><strong>Name:</strong> <span id="memberName"></span></div>
+<div class="dashboard-box"><strong>Membership Type:</strong> <span id="memberType"></span></div>
+<div class="dashboard-box"><strong>Status:</strong> Active</div>
+<div class="dashboard-box"><strong>Digital Wallet:</strong> NFC-ready / Apple/Google Wallet</div>
+<div class="dashboard-box"><strong>Verification Hash:</strong> <span id="verificationHash"></span></div>
+<div class="dashboard-box"><strong>Tier:</strong> <span id="tier"></span></div>
+<button onclick="downloadID()">Download Membership ID (PDF)</button>
+<button class="logout" onclick="logout()">Logout</button>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+// ----------------- MEMBERSHIP -----------------
+let emailCode="", selectedMembership="", uploadedPhoto="";
+let emailTimer;
+const memberships=["Student Member - ₦10,000","NYSC Member - ₦15,000","Recent Graduate - ₦30,000","Youth Professional - ₦50,000","Entrepreneur - ₦200,000","Volunteer - ₦10,000","Ambassador - ₦100,000","Corporate Member - ₦500,000"];
+const membershipContainer=document.getElementById("membershipOptions");
+
+memberships.forEach(type=>{
+    let div=document.createElement("div");
+    div.className="card";
+    div.innerText=type;
+    div.onclick=()=>{
+        document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"));
+        div.classList.add("active");
+        selectedMembership=type;
+    };
+    membershipContainer.appendChild(div);
+});
+
+// ----------------- PHOTO UPLOAD -----------------
+document.getElementById("photoUpload").addEventListener("change", function(){
+    const reader = new FileReader();
+    reader.onload = function(e){ uploadedPhoto = e.target.result; };
+    reader.readAsDataURL(this.files[0]);
+});
+
+// ----------------- VALIDATION -----------------
+function isValidEmail(email){const re=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;return re.test(email);}
+function isValidPassword(password){
+    const re=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    return re.test(password);
+}
+
+// ----------------- SCREEN NAV -----------------
+function showScreen(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");}
+function nextStep(step){
+    if(step===2 && !selectedMembership){ alert("Please select a membership type"); return; }
+    if(step===3){
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("newPassword").value;
+        let confirm=document.getElementById("confirmPassword").value;
+        if(!isValidEmail(email)){ alert("Enter a valid email"); return; }
+        if(!isValidPassword(password)){ 
+            alert("Password must be at least 8 characters, including uppercase, lowercase, number, and special character"); return;
+        }
+        if(password !== confirm){ alert("Passwords do not match"); return; }
+        sendEmailOTP();
+    }
+    showScreen("step"+step);
+    document.getElementById("progressBar").style.width= step*33 + "%";
+}
+function prevStep(step){showScreen("step"+step); document.getElementById("progressBar").style.width=(step-1)*33 + "%";}
+
+// ----------------- EMAIL OTP -----------------
+function sendEmailOTP(){
+    emailCode=Math.floor(100000+Math.random()*900000).toString();
+    alert("Simulated Email OTP: "+emailCode);
+    startEmailTimer();
+}
+function startEmailTimer(){
+    let time=60;
+    const timerDisplay = document.getElementById("emailTimer");
+    clearInterval(emailTimer);
+    emailTimer = setInterval(()=>{
+        time--;
+        timerDisplay.innerHTML = time>0?"Resend OTP in "+time+"s":'<button onclick="sendEmailOTP()">Resend OTP</button>';
+        if(time<=0) clearInterval(emailTimer);
+    },1000);
+}
+function verifyEmailOTP(){
+    if(document.getElementById("emailOTP").value===emailCode){ completeRegistration(); } 
+    else{ alert("Invalid Email OTP"); }
+}
+
+// ----------------- REGISTRATION -----------------
+function generateID(){return "AYEI-"+Math.floor(100000+Math.random()*900000);}
+function generateHash(){return Math.random().toString(36).substr(2,12);}
+function getTier(membership){
+    if(membership.includes("Corporate")||membership.includes("Entrepreneur")) return "Gold";
+    if(membership.includes("Ambassador")) return "Platinum";
+    return "Executive";
+}
+function completeRegistration(){
+    let name=document.getElementById("fullName").value;
+    let email=document.getElementById("email").value;
+    let password=document.getElementById("newPassword").value;
+    if(!name || !email || !password || !uploadedPhoto || !selectedMembership){ alert("Please complete all fields and upload photo"); return;}
+    let id=generateID(), hash=generateHash(), tier=getTier(selectedMembership);
+    localStorage.setItem("member",JSON.stringify({id,name,email,password,selectedMembership,photo:uploadedPhoto,hash,tier}));
+    loadDashboard();
+}
+
+// ----------------- DASHBOARD -----------------
+function login(){
+    let email=document.getElementById("loginEmail").value;
+    let password=document.getElementById("loginPassword").value;
+    let data=JSON.parse(localStorage.getItem("member"));
+    if(data&&data.email===email&&data.password===password){loadDashboard();}
+    else{alert("Invalid login credentials");}
+}
+function loadDashboard(){
+    let data=JSON.parse(localStorage.getItem("member")); if(!data)return;
+    document.getElementById("memberID").innerText=data.id;
+    document.getElementById("memberName").innerText=data.name;
+    document.getElementById("memberType").innerText=data.selectedMembership;
+    document.getElementById("verificationHash").innerText=data.hash;
+    document.getElementById("tier").innerText=data.tier;
+    showScreen("dashboard");
+    document.getElementById("progressBar").style.width="100%";
+}
+function logout(){showScreen("loginScreen");document.getElementById("progressBar").style.width="0%";}
+
+// ----------------- PDF ID -----------------
+function downloadID(){
+    let data=JSON.parse(localStorage.getItem("member")); if(!data){alert("No member data");return;}
+    const { jsPDF } = window.jspdf; const doc = new jsPDF();
+    let bgColor=data.tier==="Gold"? [212,175,55]:data.tier==="Platinum"? [229,228,226]:[128,128,128];
+    doc.setFillColor(...bgColor); doc.rect(10,10,190,110,"F");
+    doc.setTextColor(0,0,0); doc.setFontSize(18); doc.text("AYEI MEMBERSHIP CARD",20,30);
+    doc.setFontSize(14); doc.text("Name: "+data.name,20,50); doc.text("Membership ID: "+data.id,20,65);
+    doc.text("Type: "+data.selectedMembership,20,80); doc.text("Status: Active",20,95);
+    doc.text("Verification Hash: "+data.hash,20,110);
+    if(data.photo){doc.addImage(data.photo,'JPEG',150,45,30,30);}
+    doc.save(data.id+"_Membership_Card.pdf");
+}
+</script>
+</body>
+</html>

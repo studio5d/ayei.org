@@ -1,0 +1,48 @@
+<!-- Include CSS for intl-tel-input -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/css/intlTelInput.min.css"/>
+
+<div class="form-grid">
+  <input type="text" name="fullname" placeholder="Full Name" required minlength="3">
+  
+  <input type="email" name="email" placeholder="Email Address" required
+         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+         title="Please enter a valid email address (example: name@email.com)">
+  
+  <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+  
+  <input type="text" name="country" id="country" placeholder="Country" required>
+  <input type="text" name="state" placeholder="State / Province" required>
+  <input type="text" name="city" placeholder="City" required>
+</div>
+
+<!-- Include JS for intl-tel-input -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"></script>
+
+<script>
+// Initialize the phone input
+const phoneInput = document.querySelector("#phone");
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "auto",
+  geoIpLookup: function(success, failure) {
+    fetch('https://ipinfo.io/json?token=<YOUR_TOKEN_HERE>')
+      .then(response => response.json())
+      .then(data => success(data.country))
+      .catch(() => success('us'));
+  },
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js",
+  separateDialCode: true,
+});
+
+// Real-time validation
+phoneInput.addEventListener('input', function() {
+  const isValid = iti.isValidNumber();
+  phoneInput.style.borderColor = isValid ? 'green' : 'red';
+});
+
+// Auto-fill country input based on phone
+phoneInput.addEventListener('blur', function() {
+  const countryData = iti.getSelectedCountryData();
+  document.querySelector("#country").value = countryData.name;
+});
+</script>

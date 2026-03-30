@@ -137,16 +137,157 @@
         <section class="volunteer-section">
     <div class="form-wrapper">
         <div class="form-header">
-            <h2>Afritech Volunteer Registration</h2>
-            <p>Join us in building Africa’s digital future. Complete the form below.</p>
+            <h2>Easter Holiday Tech Bootcamp</h2>
+            <p>Give your child the opportunity to learn, build, and innovate this holiday through hands-on technology training.</p>
         </div>
 
-        <form action="https://formspree.io/f/xreanyjg" method="POST" class="volunteer-form">
+        <form action="https://formspree.io/f/xreanyjg" method="POST" class="Easter Holiday Tech Bootcamp">
 
             <!-- STEP 1 : PERSONAL INFORMATION -->
 <div class="form-step active">
 
-<h3 class="form-title">Personal Information</h3>
+<h3 class="form-title">Participant Information</h3>
+
+<div class="form-grid">
+
+<div class="form-group">
+<label for="fullname">Full Name</label>
+<input 
+type="text" 
+id="fullname"
+name="fullname"
+placeholder="Enter your full name"
+required
+minlength="3">
+</div>
+
+<div class="form-group">
+<label for="email">Email Address</label>
+<input 
+type="email" 
+id="email"
+name="email"
+placeholder="example@email.com"
+required
+pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+title="Enter a valid email address">
+</div>
+
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input 
+type="tel" 
+id="phone"
+name="phone"
+placeholder="+2348012345678"
+required
+pattern="^\+?[0-9]{10,15}$"
+title="Enter a valid phone number">
+</div>
+
+
+
+<div class="form-group">
+<label for="state">Age</label>
+<input 
+type="text"
+id="Age"
+name="Age"
+placeholder="Age"
+required>
+</div>
+
+<div class="form-group">
+<label for="Date of birth">Date of birth</label>
+<input 
+type="text"
+id="Date of birth"
+name="Date of birth"
+placeholder="Date of birth"
+required>
+</div>
+<div class="form-group">
+<label for="School">School Name</label>
+<input 
+type="text"
+id="School Name"
+name="School Name"
+placeholder="School Name"
+required>
+</div>
+<div class="form-group">
+<label for="Current Class/Grade">Current Class/Grade</label>
+<input 
+type="text"
+id="Current Class/Grade"
+name="Current Class/Grade"
+placeholder="Current Class/Grade"
+required>
+</div>
+</div>
+
+
+
+</div>
+
+
+<!-- STEP 2 : PROFESSIONAL BACKGROUND -->
+
+<div class="form-step">
+
+
+
+
+
+<div class="form-group">
+
+</div>
+
+<div class="form-group">
+<label for="experience">Gender</label>
+<select id="experience" name="experience" required>
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+</div>
+
+<div class="form-group">
+
+</div>
+
+<!-- STEP 2 : PROFESSIONAL BACKGROUND -->
+
+<div class="form-step">
+
+
+
+
+
+<div class="form-group">
+
+</div>
+
+<div class="form-group">
+<label for="experience">Program Selection</label>
+<select id="experience" name="experience" required>
+<option value="">Which program(s) are you interested in?</option>
+<option>Robotics & Artificial Intelligence</option>
+<option>Web Development</option>
+<option>3D Animation</option>
+<option>Python Programming</option>
+<option>Graphic Design</option>
+<option>Electronics & Embedded Systems</option>
+</select>
+</div>
+
+
+
+</div>
+            <!-- STEP 1 : PERSONAL INFORMATION -->
+<div class="form-step active">
+
+<h3 class="form-title">Parent / Guardian Details</h3>
 
 <div class="form-grid">
 
@@ -186,227 +327,21 @@ title="Enter a valid phone number">
 </div>
 
 <div class="form-group">
-<label for="country">Country</label>
+<label for="School">Home Address</label>
 <input 
 type="text"
-id="country"
-name="country"
-placeholder="Country"
+id="Home Address"
+name="Home Address"
+placeholder="Home Address"
 required>
 </div>
 
-<div class="form-group">
-<label for="state">State / Province</label>
-<input 
-type="text"
-id="state"
-name="state"
-placeholder="State / Province"
-required>
-</div>
-
-<div class="form-group">
-<label for="city">City</label>
-<input 
-type="text"
-id="city"
-name="city"
-placeholder="City"
-required>
-</div>
-
-</div>
 
 
 
 </div>
 
 
-<!-- STEP 2 : PROFESSIONAL BACKGROUND -->
-
-<div class="form-step">
-
-<h3 class="form-title">Professional Background</h3>
-
-<div class="form-grid">
-
-<div class="form-group">
-<label for="skill">Primary Skill</label>
-<input type="text" id="skill" name="skill" placeholder="e.g. Web Development" required>
-</div>
-
-<div class="form-group">
-<label for="experience">Experience Level</label>
-<select id="experience" name="experience" required>
-<option value="">Select Level</option>
-<option>Student</option>
-<option>Beginner</option>
-<option>Intermediate</option>
-<option>Advanced</option>
-<option>Expert</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="portfolio">Portfolio / GitHub</label>
-<input type="url" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
-</div>
-
-</div>
-
-
-
-</div>
-
-
-<!-- STEP 3 : VOLUNTEER INTEREST -->
-
-<div class="form-step">
-
-<h3 class="form-title">Volunteer Interest</h3>
-
-<div class="form-grid">
-
-<div class="form-group">
-<label for="model">Volunteer Model</label>
-<select id="model" name="volunteer_model" required>
-<option value="">Select Model</option>
-<option>Hybrid</option>
-<option>On Site</option>
-<option>Virtual</option>
-<option>Flexible / Remote-First</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="availability">Availability</label>
-<select id="availability" name="availability" required>
-<option value="">Select Availability</option>
-<option>5 hrs/week</option>
-<option>10 hrs/week</option>
-<option>Flexible</option>
-<option>Project Based</option>
-<option>Event Support Only</option>
-</select>
-</div>
-
-</div>
-
-
-</div>
-
-
-<!-- STEP 4 : TECHNICAL CATEGORY -->
-
-<div class="form-step">
-
-<h3 class="form-title">Technical Category</h3>
-<p class="form-note">Select areas where you have skills.</p>
-
-<div class="form-grid">
-
-<select name="software_engineering">
-<option value="">Software & Engineering</option>
-<option>Frontend Development</option>
-<option>Backend Development</option>
-<option>Full Stack Development</option>
-<option>Mobile Apps Development</option>
-<option>Cloud Computing</option>
-<option>DevOps Engineering</option>
-<option>Cybersecurity</option>
-<option>None</option>
-</select>
-
-<select name="data_ai">
-<option value="">Data & Artificial Intelligence</option>
-<option>Data Science</option>
-<option>Data Analytics</option>
-<option>Artificial Intelligence</option>
-<option>Machine Learning</option>
-<option>None</option>
-</select>
-
-<select name="emerging_tech">
-<option value="">Emerging Technologies</option>
-<option>Blockchain Development</option>
-<option>Web3 Systems</option>
-<option>AR/VR Development</option>
-<option>IoT</option>
-<option>Robotics</option>
-<option>None</option>
-</select>
-
-<select name="design_product">
-<option value="">Design & Product</option>
-<option>UI/UX Design</option>
-<option>Product Design</option>
-<option>Graphic Design</option>
-<option>Tech Project Management</option>
-<option>None</option>
-</select>
-
-<select name="digital_strategy">
-<option value="">Innovation & Digital Strategy</option>
-<option>EdTech Solutions</option>
-<option>FinTech Solutions</option>
-<option>Digital Marketing</option>
-<option>Technical Writing</option>
-<option>Research & Tech Policy</option>
-<option>None</option>
-</select>
-
-<input type="text" name="other_skill" placeholder="Other (optional)">
-
-</div>
-
-
-
-</div>
-
-
-<!-- STEP 5 : DOCUMENT UPLOAD -->
-
-<div class="form-step">
-
-<h3 class="form-title">Upload Documents</h3>
-
-<div class="form-group">
-<label for="cv">Upload CV</label>
-<input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.jpg" required>
-</div>
-
-<div class="form-group">
-<label for="portrait">Professional Portrait</label>
-<input type="file" id="portrait" name="portrait" accept="image/*" required>
-
-<p class="upload-note">
-Please submit your CV and a professional portrait directly to this Email address(afritechyouth@gmail.com).
-<a href="mailto:afritechyouth@gmail.com" style="color: blue;">Submit</a> 
-<p>Note that the automated upload feature is currently undergoing maintenance. 
-    <p>For best results, ensure 
-    your photo is a high-resolution, waist-up studio portrait; please avoid using selfies or low-quality images.</p>
-    
-</p>
-</div>
-
-
-</div>
-
-
-<!-- STEP 6 : MOTIVATION -->
-
-<div class="form-step">
-
-<h3 class="form-title">Motivation</h3>
-
-<div class="form-group">
-<label for="motivation">Why do you want to volunteer? (Max 250 words)</label>
-<textarea id="motivation" name="motivation" rows="5" required></textarea>
-</div>
-
-
-
-</div>
 
 
 <!-- STEP 7 : REVIEW -->
